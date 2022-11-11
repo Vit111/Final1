@@ -24,7 +24,8 @@ const SingleFilm = () => {
       }
     }
   }
-
+  console.log(selectedItem)
+  console.log(params)
   useEffect(() => {
     if (selectedItem) {
       getData(params.id)

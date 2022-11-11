@@ -24,9 +24,12 @@ function Films() {
   const [currentPage, setCurrentPage] = useState<any>(1)
   const [showPerPage] = useState<any>(12)
 
+
+
   const lastShowIndex = currentPage * showPerPage;
   const firstShowIndex = lastShowIndex - showPerPage;
   const currentShow = data.slice(firstShowIndex, lastShowIndex)
+  console.log(data)
   const totalShow = data.length
   const pagesOfSHow = totalShow / showPerPage
   const paginate = (event: any) => {
@@ -50,7 +53,7 @@ function Films() {
   }
   const getData = async (inputValue: string, setInputValues: string) => {
 
-    if (setInputValues != null && selectedItem){
+    if (setInputValues != null && selectedItem) {
       setLoading(true)
       const response = await axios.get(`${API_SEARCH}${setInputValues}`);
       if (response.data) {
@@ -62,7 +65,7 @@ function Films() {
       }
       setLoading(false)
     }
-    else if(inputValue != ''){
+    else if (inputValue != '') {
       setLoading(true)
       const response = await axios.get(`${API_SEARCH}${inputValue}`);
       if (response.data) {
@@ -86,7 +89,7 @@ function Films() {
 
   function onChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value
-    if (value && currentPage !== 1 && setLastValue !== '') {
+    if (value && currentPage != 1 && setLastValue != '') {
       setCurrentPage(1)
     }
     setInputValue(value);
@@ -116,16 +119,16 @@ function Films() {
     }
     else if (setLastValue === null && selectedItem && setInputValues) {
       setInputValue(setInputValues)
-      getData(inputValue,setInputValues)
+      getData(inputValue, setInputValues)
     }
     else if (setLastValue === null && selectedItem && setInputValues === '') {
-      getData(inputValue,setInputValues)
+      getData(inputValue, setInputValues)
     }
 
-    else if (setInputValues && setLastValue && selectedItem && currentPage === 1) { 
-      getData(inputValue,setInputValues)
+    else if (setInputValues && setLastValue && selectedItem && currentPage === 1) {
+      getData(inputValue, setInputValues)
     }
-    getData(inputValue,setInputValues)
+    getData(inputValue, setInputValues)
   }, [])
   if (!data) {
     return null;
@@ -145,9 +148,9 @@ function Films() {
             hoverable
             style={{ width: 240 }}
             cover={<img alt={el.name} src={el?.image?.medium} data-name={el.id} />}>
-            <div className="info" >
-              <a href="" data-name={el.id}>{el.name}</a>
-              <a href="" data-name={el.id}>Rating = {el.rating.average}*</a>
+            <div className='info'>
+              <p data-name={el.id}>{el.name}</p>
+              <p data-name={el.id}>Rating = {el.rating.average}*</p>
             </div>
           </Card>
         })}

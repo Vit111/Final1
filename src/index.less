@@ -106,12 +106,14 @@ a:hover {
 .pagination {
   display: flex;
   list-style: none;
+  justify-content: center;
+  justify-content: space-around;
 }
 
 .pagenumber {
   border: 1px solid firebrick;
+  font-size: 20px;
   border-radius: 10px;
-  margin: 10px;
   background-color: rgb(187, 17, 187);
 
   a {
@@ -121,6 +123,11 @@ a:hover {
   a:hover {
     color: brown;
   }
+}
+
+.pagelink{
+  border-radius: 10px;
+  padding: 10px;
 }
 
 .Prev,
@@ -167,4 +174,11 @@ a:hover {
 .image {
   height: 297px;
   width: 210px;
+}
+
+.wrong{
+  background-color: black;
+  font-size: 60px;
+  text-align: center;
+  color: red;
 }

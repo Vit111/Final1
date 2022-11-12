@@ -1,6 +1,6 @@
-import { FilmType } from "./film";
-
 export type PageContextType = {
-    setLastValue: FilmType | null;
-    setLastedItem: (item: FilmType) => void;
+    selectedPageNumber: number;
+    setSelectedPageNumber: (page: number) => void;
+    selectedInputValue: string;
+    setSelectedInputValue: (value: string) => void;
 }

@@ -1,5 +1,4 @@
 import { createContext, useContext, useState } from 'react';
-import { JsxElement } from 'typescript';
 import { FilmType } from '../types/film';
 import { FilmContextType } from '../types/FilmContextType';
 

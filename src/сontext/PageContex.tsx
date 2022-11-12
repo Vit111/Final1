@@ -1,19 +1,23 @@
 import { createContext, useContext, useState } from 'react';
-import { FilmType } from '../types/film';
 import { PageContextType } from '../types/PageContextType';
 
 
 export const PageContext = createContext<PageContextType>({
-    setLastValue: null,
-    setLastedItem: () => { }
+    selectedPageNumber: 1,
+    setSelectedPageNumber: () => {},
+    selectedInputValue: '',
+    setSelectedInputValue: () => {}
 })
 
 const useProvidePage = (): PageContextType => {
-    const [setLastValue, setLastedItem] = useState<FilmType | null>(null)
+    const [selectedPageNumber, setSelectedPageNumber] = useState<number>(1);
+    const [selectedInputValue, setSelectedInputValue] = useState<string>('');
 
     return {
-        setLastValue,
-        setLastedItem
+        selectedPageNumber,
+        setSelectedPageNumber,
+        selectedInputValue,
+        setSelectedInputValue,
     }
 }
 

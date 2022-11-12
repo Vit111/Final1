@@ -24,15 +24,10 @@ const SingleFilm = () => {
       }
     }
   }
-  console.log(selectedItem)
-  console.log(params)
+
   useEffect(() => {
-    if (selectedItem) {
-      getData(params.id)
-    } else {
-      const paramId = params.id ?? '';
-      getData(paramId);
-    }
+    const id: string | undefined = selectedItem?.id ? selectedItem?.id?.toString() : params.id;
+    getData(id);
   }, [selectedItem, params]);
 
   if (!data) {
